@@ -1,5 +1,5 @@
 -module(fizzbazz).
--export([start/1]).
+-export([start/1, eval/1]).
 
 start(Number) when is_integer(Number) ->
 	run(lists:seq(1, Number));
@@ -28,6 +28,8 @@ eval(Number) when Number rem 3 == 0 ->
 	end;
 eval(Number) when Number rem 5 == 0 ->
 	io:format("~w bazz~n", [Number]);
+eval(<<Number:8,_Rest/binary>>) ->
+	eval(Number);
 eval(Number) ->
 	io:format("~w~n", [Number]).
 

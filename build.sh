@@ -1,4 +1,3 @@
 #!/bin/bash 
-
-erlc -o ./ebin ./src/*.erl
+erlc -o ./ebin -I ./include ./src/*.erl
 

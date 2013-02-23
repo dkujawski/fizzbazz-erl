@@ -1,0 +1,4 @@
+#!/bin/bash
+
+erl -pa ./ebin ./include ./include/amqp_client/ebin ./include/rabbit_common/ebin -run listen start -run init stop -noshell
+
