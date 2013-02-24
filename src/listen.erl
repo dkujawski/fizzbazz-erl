@@ -1,7 +1,5 @@
 -module(listen).
-
 -include_lib("amqp_client/include/amqp_client.hrl").
-
 -export([start/0]).
 
 start() ->
@@ -18,7 +16,6 @@ start() ->
         #'basic.consume_ok'{} -> ok
     end,
     loop(Channel).
-
 
 loop(Channel) ->
     receive

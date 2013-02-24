@@ -1,4 +1,6 @@
 #!/bin/bash
-
-erl -pa ./ebin -run fizzbazz start $1 -run init stop -noshell
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJ_DIR="$( cd "$( dirname "${THIS_DIR}" )" && pwd )"
+EBIN_DIR=$PROJ_DIR/ebin
+erl -pa $EBIN_DIR -run fizzbazz start $1 -run init stop -noshell
 
