@@ -7,5 +7,5 @@ INCL_DIR=${PROJ_DIR}/include
 AMQP_DIR=${PROJ_DIR}/include/amqp_client/ebin
 RABB_DIR=${PROJ_DIR}/include/rabbit_common/ebin
 
-erl -sname listener -pa $EBIN_DIR $INCL_DIR $AMQP_DIR $RABB_DIR -run listen start $1 -noshell
+erl -sname sender -pa $EBIN_DIR $INCL_DIR $AMQP_DIR $RABB_DIR -run send start $1 -noshell
 
