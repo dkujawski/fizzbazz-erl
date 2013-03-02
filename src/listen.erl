@@ -10,7 +10,8 @@ listener() ->
         finished ->
             io:format("listener finished ~n", []);
         {sender, Message} ->
-            io:format(" [x] : ~w ", [Message]),
-            fizzbazz:eval(Message)
+            io:format(" [o] received : ~w ", [Message]),
+            fizzbazz:eval(Message),
+            listener()
     end.
 
