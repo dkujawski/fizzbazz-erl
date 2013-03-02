@@ -1,0 +1,11 @@
+#!/bin/bash
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJ_DIR="$( cd "$( dirname "${THIS_DIR}" )" && pwd )"
+
+EBIN_DIR=${PROJ_DIR}/ebin
+INCL_DIR=${PROJ_DIR}/include
+AMQP_DIR=${PROJ_DIR}/include/amqp_client/ebin
+RABB_DIR=${PROJ_DIR}/include/rabbit_common/ebin
+
+erl -pa $EBIN_DIR $INCL_DIR $AMQP_DIR $RABB_DIR -run listen start -run send start -noshell
+
