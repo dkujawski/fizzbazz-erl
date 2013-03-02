@@ -1,4 +1,4 @@
--module(listen).
+-module(rabbit_listen).
 -include_lib("amqp_client/include/amqp_client.hrl").
 -export([start/0]).
 

@@ -1,4 +1,4 @@
--module(send).
+-module(rabbit_send).
 -include_lib("amqp_client/include/amqp_client.hrl").
 -export([loop/0]).
 
