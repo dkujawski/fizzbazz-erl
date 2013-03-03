@@ -16,7 +16,8 @@ loop(Channel) ->
     receive
         {#'basic.deliver'{routing_key = RoutingKey}, #amqp_msg{payload = Body}} ->
             io:format(" [x] ~p:~w ", [RoutingKey, Body]),
-            fizzbazz:eval(Body),
+            {ok, Response} = fizzbazz:eval(Body),
+            io:format("~w ~p~n", [Response, Body]),            
             loop(Channel)
     end.
 

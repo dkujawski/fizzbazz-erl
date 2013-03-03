@@ -15,21 +15,22 @@ start([]) ->
 	io:format("done~n").
 
 run([Number|Others]) ->
-	eval(Number),
+	{ok, Response} = eval(Number),
+	io:format("~w ~p~n", [Response, Number]),
 	run(Others);
 run([]) -> ok.
 
 eval(Number) when Number rem 3 == 0 ->
 	case Number rem 5 == 0 of
 		true -> 
-			io:format("~w fizzbazz~n",[Number]);
+			{ok, fizzbazz};
 		false ->
-			io:format("~w fizz~n", [Number])
+			{ok, fizz}
 	end;
 eval(Number) when Number rem 5 == 0 ->
-	io:format("~w bazz~n", [Number]);
+	{ok, bazz};
 eval(<<Number:8,_Rest/binary>>) ->
 	eval(Number);
 eval(Number) ->
-	io:format("~w~n", [Number]).
+	{ok, Number}.
 
